@@ -9,7 +9,7 @@ WEATHER_API_BY_LAT_LON = https://api.openweathermap.org/data/2.5/weather?lat={la
 
 WEATHER_API_BY_CITY_NAME = https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={API_key}
 
-https://api.openweathermap.org/data/2.5/weather?lat=23.015759&lon=72.599686&appid=a4fdfc28b360c33e2c5e11023e6e315e
+https://api.openweathermap.org/data/2.5/weather?lat=23.015759&lon=72.599686&appid={API_key}
 - upper vali api se ye response milta hai,
 reaponse:
 ```js
@@ -112,7 +112,7 @@ Here's a more detailed explanation:
 
 
 
-### what is preventDefault() in js ?
+## what is preventDefault() in js ?
 
 In JavaScript, event.preventDefault() is a method of the Event interface that is used to prevent the browser's default action associated with a specific event. 
 Purpose: 
@@ -150,7 +150,7 @@ event.preventDefault() only prevents the default action of the event. It does no
 
 
 
-### Problem: yaha city name me maine object pass kiya tha vo print nahi ho raha hai.
+## Problem: yaha city name me maine object pass kiya tha vo print nahi ho raha hai.
 ```JSX
 return (
     <>
@@ -252,7 +252,7 @@ const fetchWeatherData = async (city) => {
 
 Bhai, agar koi aur issue ho ya API response ka structure different ho toh batana! 🚀
 
-### Qeation: What is optional chainig "?." operator.
+## Quetion: What is optional chainig "?." operator.
 
 ### Answer:
 
@@ -303,7 +303,7 @@ console.log(nonExistentStreet); // Output: undefined (no error)
 <br>
 <br>
 
-### Problem:
+## Problem:
 
 ab mujhe ye batao ki ye,
 ```js
@@ -414,7 +414,7 @@ Tera doubt 🔥 real dev ke jaise tha bhai. Ye wali depth kam log explore karte.
 <br>
 <br>
 
-### Problem: 
+## Problem: 
 
 ### 1. page load hone par vo location ki accesse hi mangte reh jata hai and tab tak default vala case hi run ho jata hai. ye empty dependency array ke time hota hai and 
 
@@ -522,7 +522,7 @@ Bas chhoti async cheezein React me tricky hoti hain — tu seekh gaya ab ✅
 <br>
 <br>
 
-### Question: empty object kese check karte hai?
+## Question: empty object kese check karte hai?
 
 ### Solution:
 
