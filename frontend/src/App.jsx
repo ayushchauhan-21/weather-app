@@ -573,7 +573,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 
 function App() {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Ahmedabad");
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -582,7 +582,7 @@ function App() {
   //   longitude: ''
   // })
   // upper mene jese cords banaye hai vese na bana ke isse me null set kar deta hu jese weatherData ko GPT ne null set kiya hai then usme weather data ka object set karva diya tha vese hi me iss cords me pura coords ka object hi set karva dunga and usme se latitude and lonngitude ki values le lunga. 
-  const [cords, setCords] = useState(null)
+  const [cords, setCords] = useState(null) // i think hamne ye cords ka use hi nahi kiya direct hi kaam kar liya.
 
 
   // useEffect(() => {
@@ -618,6 +618,7 @@ function App() {
     }, (err) => {
       // user denied or failed — fallback to default city
       setLoading(true);
+      // console.log("city ko calling....")
       fetchWeatherData(city);
     });
   }, []);
@@ -642,15 +643,24 @@ function App() {
   };
 
   const fetchWeatherData = async (cityName) => {
+    // console.log("fetch city function call")
     try {
+      // console.log("city called try")
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${import.meta.env.VITE_WEATHER_API_KEY}`
       );
+      if (!response || Object.keys(response).length === 0) {
+        // console.log("response hi nahi mila")
+        setError("response hi nahi mila")
+        return
+      }
       setWeatherData(response.data);
     } catch (err) {
-      setError("❌ City not found or API error!");
+      // console.log("city called catch")
+      setError("❌ City not found or API error! by city");
     } finally {
       setLoading(false);
+      setCity("")
     }
   };
 
@@ -659,7 +669,7 @@ function App() {
       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${import.meta.env.VITE_WEATHER_API_KEY}`)
       setWeatherData(response.data);
     } catch (err) {
-      setError("❌ City not found or API error!");
+      setError("❌ City not found or API error! by cords");
     } finally {
       setLoading(false);
     }
